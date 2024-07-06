@@ -5,13 +5,12 @@ const port = process.env.PORT || 5000
 
 const connectDb = require("./db/db");
 const cors = require('cors')
-const userRouter = require('./routes/user')
+const router = require('./routes/user')
 const cookieParser = require('cookie-parser')
-// const bodyParser = require('body-parser')
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Your frontend URL
-  credentials: true // Allow credentials (cookies) to be sent
+  origin: 'http://localhost:5173', 
+  credentials: true
 };
 
 
@@ -21,7 +20,7 @@ app.use(express.json());
 app.use(cors(corsOptions))
 app.use(cookieParser())
 
-app.use('/api/v1/auth',userRouter)
+app.use('/api/v1',router)
 
 app.get("/", (req:Request,res:Response) => {
     res.send("hellow world!")

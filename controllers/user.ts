@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-const User = require("./../models/User");
+const User = require("./../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -9,7 +9,7 @@ const createUser = async (req: Request, res: Response) => {
   try {
     const { name, email, password, } = req.body;
     if (!name) {
-      return res.status(500).json({ errorMessage: "First Name is required!" });
+      return res.status(500).json({ errorMessage: "Name Name is required!" });
     }
     if (!email) {
       return res.status(500).json({ errorMessage: "Email is required!" });
