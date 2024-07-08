@@ -5,17 +5,17 @@ const Question = require("./../models/questions");
 
 const createQuestion = async (req: Request, res: Response) => {
   try {
-    const { question, options, ans, chapterId, courseId, userId } = req.body;
+    const { question, options, ans, chapterId} = req.body;
     if (!question) {
       return res.status(500).json({ errorMessage: "Question is required!" });
     }
-    if (!courseId) {
-      return res.status(500).json({ errorMessage: "Course id is required!" });
-    }
+    // if (!courseId) {
+    //   return res.status(500).json({ errorMessage: "Course id is required!" });
+    // }
     if (!chapterId) {
       return res.status(500).json({ errorMessage: "Chapter id is required!" });
     }
-    if (!options.length) {
+    if (!options) {
       return res.status(500).json({ errorMessage: "Options is required!" });
     }
     if (!ans.length) {
@@ -25,10 +25,8 @@ const createQuestion = async (req: Request, res: Response) => {
     const index = questions.length + 1
     const newQuestion = new Question({
       chapterId,
-      courseId,
       question,
       ans,
-      userId,
       options,
       index
     });
@@ -67,9 +65,20 @@ const getQuestions = async (req: Request, res: Response) => {
     res.status(404).json({ errorMessage: "No course found!" })
   }
 }
+const DeleteAll = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+     await Question.deleteMany({ chapterId: id })
+    
+    res.status(200).send("deleted successfully!")
+  } catch (error) {
+    res.status(404).json({ errorMessage: "No course found!" })
+  }
+}
 
 module.exports = {
   createQuestion,
   getAllQuestions,
   getQuestions,
+  DeleteAll
 };

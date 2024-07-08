@@ -22,7 +22,8 @@ const {
 const {
     createQuestion,
     getQuestions,
-    getAllQuestions
+    getAllQuestions,
+    DeleteAll
 } = require('./../controllers/questions')
 
 const router = express.Router()
@@ -46,6 +47,7 @@ router.get('/course/chapters/:id',getChapters)
 router.post('/course/chapter/question',createQuestion);
 // router.get('/course/chapter/questions',getAllQuestions);
 router.get('/course/chapter/question/:id',getQuestions)
+router.delete('/course/chapter/question/:id',DeleteAll)
 
 
 module.exports = router;

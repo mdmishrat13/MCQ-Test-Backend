@@ -10,22 +10,36 @@ const questionSchema =new mongoose.Schema({
         type:String,
         required:[true,'Question Name is required!'],
     },
-    options:{
-        type:[String],
-        required:[true,'Question Name is required!'],
+    options: {
+        a: {
+            type: String,
+            required: true
+        },
+        b: {
+            type: String,
+            required: true
+        },
+        c: {
+            type: String,
+            required: true
+        },
+        d: {
+            type: String,
+            required: true
+        }
     },
-    courseId: {
-        type: String,
-        required:[true,"Course id is not valid"]
-    },
+    // courseId: {
+    //     type: String,
+    //     required:[true,"Course id is not valid"]
+    // },
     chapterId: {
         type: String,
         required:[true,"Chapter id is not valid "]
     },
-    userId: {
-        type: String,
-        required:[true,"Chapter id is not valid "]
-    },
+    // userId: {
+    //     type: String,
+    //     required:[true,"Chapter id is not valid "]
+    // },
     ans: {
         type: String,
         required:[true,"Chapter id is not valid"]
