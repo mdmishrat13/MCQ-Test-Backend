@@ -9,7 +9,7 @@ const router = require('./routes/user')
 const cookieParser = require('cookie-parser')
 
 const corsOptions = {
-  origin: 'http://localhost:5173', 
+  origin: 'https://e-learning-git-main-mdmishrat13s-projects.vercel.app', 
   credentials: true
 };
 

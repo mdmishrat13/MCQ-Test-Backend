@@ -16,7 +16,7 @@ const {
 
 const {
     createChapter,
-    // getChapter,
+    getChapter,
     getChapters,
 } = require('./../controllers/chapters')
 const {
@@ -42,6 +42,7 @@ router.get('/course/:id',getCourse)
 router.get('/courses',getCourses)
 
 router.post('/course/chapter',createChapter);
+router.get('/course/chapter/:id',getChapter);
 router.get('/course/chapters/:id',getChapters)
 
 router.post('/course/chapter/question',createQuestion);

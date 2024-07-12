@@ -29,18 +29,18 @@ const createChapter = async (req: Request, res: Response) => {
 };
 
 
-// const getChapter = async (req: Request, res: Response) => {
-//   try {
-//     const id = req.params.id;
-//     const course = await Chapter.find({courseId:id});
-//     if (!course) {
-//       res.status(404).json({ errorMessage: "No course found!" });
-//     }
-//     res.status(200).json(course)
-//   } catch (error) {
-//     res.status(404).json({ errorMessage: "No course found!" });
-//   }
-// };
+const getChapter = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const chapter = await Chapter.findOne({_id:id});
+    if (!chapter) {
+      res.status(404).json({ errorMessage: "No chapter found!" });
+    }
+    res.status(200).json(chapter)
+  } catch (error) {
+    res.status(404).json({ errorMessage: "No chapter found!" });
+  }
+};
 
 
 const getChapters = async (req: Request, res: Response) => {
@@ -58,6 +58,6 @@ const getChapters = async (req: Request, res: Response) => {
 
 module.exports = {
     createChapter,
-    // getChapter,
+    getChapter,
     getChapters,
 };
