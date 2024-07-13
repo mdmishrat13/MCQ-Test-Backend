@@ -1,5 +1,6 @@
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv'
+import { Request, Response } from "express";
+const express=require ('express');
+const dotenv=  require ('dotenv')
 dotenv.config()
 const port = process.env.PORT || 5000
 
@@ -8,8 +9,9 @@ const cors = require('cors')
 const router = require('./routes/user')
 const cookieParser = require('cookie-parser')
 
+
 const corsOptions = {
-  origin: 'https://e-learning-git-main-mdmishrat13s-projects.vercel.app', 
+  origin: process.env.BASE_URL_FRONTEND,
   credentials: true
 };
 
